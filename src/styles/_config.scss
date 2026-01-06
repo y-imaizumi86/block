@@ -1,0 +1,7 @@
+// src/styles/_config.scss
+
+@use "./foundation/layers";
+@forward "./foundation/function";
+@forward "./foundation/mixin";
+@forward "./foundation/variable";
+@forward "./foundation/animation";

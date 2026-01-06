@@ -1,16 +1,66 @@
 ---
+// src/pages/index.astro
 
+import Hero from '@/components/blocks/Hero.astro';
+import Layout from '@/layouts/Layout.astro';
+import thumbLabs01 from '@/assets/images/labs01.png';
+import Work from '@/components/blocks/Work.astro';
+import Github from '@/components/blocks/Github.astro';
+import Tech from '@/components/blocks/Tech.astro';
+import Philosophy from '@/components/blocks/Philosophy.astro';
+import About from '@/components/blocks/About.astro';
+import Decor from '@/components/blocks/Decor.astro';
+import Credit from '@/components/blocks/Credit.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Top" description="YUTA IMAIZUMI - Markup Engineer Portfolio">
+  <main class="main">
+    <div class="main__inner">
+      <Hero />
+      <Work
+        title="LABS Infrastructure"
+        description='建設会社サイトのトップページを再構築。jQuery依存のアニメーションをGSAPで再現し、Astroへ移行することでパフォーマンスを改善。'
+        tags={['Astro', 'GSAP', 'SCSS', 'Migration']}
+        image={thumbLabs01}
+        href="https://labs-infra.i-kinako.com"
+      />
+      <Decor />
+      <Tech />
+      <Philosophy />
+      <About />
+      <Github href="https://github.com/y-imaizumi86" />
+      <Decor />
+      <Credit class="u-span-2 u-span-3-md" />
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  @use '@/styles/config' as *;
+
+  @layer layout {
+    .main {
+      &__inner {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(160px, auto);
+        grid-auto-flow: dense;
+        row-gap: 16px;
+        column-gap: 16px;
+        max-width: 1200px;
+        min-height: 100dvh;
+        padding: 16px;
+        margin-inline: auto;
+
+        @include mq('md') {
+          grid-template-rows: repeat(3, 240px);
+          grid-template-columns: repeat(4, 1fr);
+          row-gap: 24px;
+          column-gap: 24px;
+          align-content: center;
+          padding: 40px;
+        }
+      }
+    }
+  }
+</style>

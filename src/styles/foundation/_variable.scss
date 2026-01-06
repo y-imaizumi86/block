@@ -1,0 +1,25 @@
+// src/styles/foundation/_variable.scss
+
+/* Colors */
+$color-bg: #f9f9f7;
+$color-text: #2a2a2a;
+$color-item: #fff;
+$color-border: #e6e6e4;
+$color-accent: #2a2a2a;
+$color-primary: #fe6019;
+
+/* Fonts */
+$font-ja: "Zen Old Mincho", "Yu Mincho", "YuMincho", serif;
+$font-en: "Inter", "Helvetica Neue", arial, sans-serif;
+
+/* Radius */
+$radius-lg: 24px;
+$radius-md: 12px;
+$radius-sm: 4px;
+
+/* Breakpoints */
+$breakpoints: (
+  "sm": "screen and (max-width: 767px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 1200px)",
+) !default;

@@ -1,0 +1,50 @@
+---
+// src/components/blocks/Philosophy.astro
+
+import Card from '../ui/Card.astro';
+---
+
+<Card class="philosophy u-span-2">
+  <div class="philosophy__inner">
+    <p class="philosophy__en u-en">Structuring<br />the Web.</p>
+    <div class="philosophy__jp">
+      <p>Webサイトの</p>
+      <p>設計と実装。</p>
+    </div>
+  </div>
+</Card>
+
+<style lang="scss">
+  @use '@/styles/config' as *;
+
+  @layer component {
+    .philosophy {
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding-inline: 24px;
+      }
+
+      &__en {
+        font-size: rem(24);
+        font-weight: 800;
+        line-height: 1.1;
+        color: rgba($color-text, 0.1);
+        letter-spacing: -0.02em;
+      }
+
+      &__jp {
+        font-family: $font-ja;
+        font-size: rem(16);
+        font-weight: 500;
+        line-height: 2;
+        color: rgba($color-text, 0.8);
+        letter-spacing: 0.15em;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+      }
+    }
+  }
+</style>

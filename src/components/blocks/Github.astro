@@ -1,0 +1,71 @@
+---
+// src/components/blocks/Github.astro
+
+import { FaGithub } from 'react-icons/fa';
+import Card from '../ui/Card.astro';
+
+interface Props {
+  href?: string;
+}
+
+const { href = '/' } = Astro.props;
+---
+
+<Card href={href} isTarget class="github">
+  <div class="github__inner">
+    <div class="github__icon">
+      <FaGithub />
+    </div>
+    <div class="github__content u-en">
+      <span class="github__label">Github</span>
+      <span class="github__arrow">↗</span>
+    </div>
+  </div>
+</Card>
+
+<style lang="scss">
+  @use '@/styles/config' as *;
+
+  @layer component {
+    :global(.github) {
+      &.c-card {
+        color: $color-item;
+        background-color: $color-text;
+        border: none;
+      }
+
+      @include hover {
+        .github__arrow {
+          transform: translate(4px, -4px);
+        }
+      }
+    }
+
+    .github {
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      &__icon {
+        font-size: rem(40);
+      }
+
+      &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: rem(14);
+        font-weight: 600;
+        line-height: 1;
+      }
+
+      &__arrow {
+        font-family: $font-ja;
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+</style>

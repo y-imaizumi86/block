@@ -1,0 +1,55 @@
+// src/styles/foundation/_utility.scss
+
+@use "./mixin" as *;
+@use "./variable" as *;
+
+@layer utility {
+  .u-en {
+    font-family: $font-en;
+    letter-spacing: 0.02em;
+  }
+
+  .u-span-2 {
+    grid-column: span 2;
+  }
+
+  .u-span-2-md {
+    @include mq("md") {
+      grid-column: span 2;
+    }
+  }
+
+  .u-span-3 {
+    grid-column: span 3;
+  }
+
+  .u-span-3-md {
+    @include mq("md") {
+      grid-column: span 3;
+    }
+  }
+
+  .u-row-2 {
+    grid-row: span 2;
+  }
+
+  .u-row-2-md {
+    @include mq("md") {
+      grid-row: span 2;
+    }
+  }
+
+  .u-sp-only {
+    @include mq("md") {
+      display: none;
+    }
+  }
+
+  .u-pc-only {
+    display: none;
+
+    @include mq("md") {
+      display: block;
+    }
+  }
+}

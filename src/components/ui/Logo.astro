@@ -1,0 +1,23 @@
+---
+// src/components/ui/Logo.astro
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+  class:list={[className]}
+  width="1em"
+  height="1em"
+>
+  <rect x="2" y="2" width="6" height="20" rx="1.5"></rect>
+  <rect x="10" y="2" width="12" height="6" rx="1.5"></rect>
+  <rect x="10" y="10" width="10" height="4" rx="1.5"></rect>
+  <rect x="10" y="16" width="12" height="6" rx="1.5"></rect>
+</svg>

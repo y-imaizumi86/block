@@ -1,0 +1,31 @@
+// .vscode/settings.json
+
+{
+  // --- フォーマット・保存時アクション ---
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+
+  // --- バリデーション設定 ---
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "scss", "astro"],
+  "stylelint.configFile": "stylelint.config.cjs",
+
+  // --- ファイルの関連付け ---
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
+
+  // --- テーマカラー ---
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#fe6019",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#fe601999"
+  }
+}

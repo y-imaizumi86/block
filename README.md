@@ -1,43 +1,59 @@
-# Astro Starter Kit: Minimal
+# BLOCK - Markup Engineer Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+[https://block.i-kinako.com](https://block.i-kinako.com)
+![BLOCK Portfolio Preview](./public/ogp.png)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**BLOCK** is a personal portfolio website designed with a "Bento Grid" layout.
+It embodies the concept of "Structuring the Web" — focusing on solid HTML structure, semantic markup, and maintainable CSS architecture.
 
-## 🚀 Project Structure
+## 🛠 Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Framework:** [Astro](https://astro.build/) (v5)
+- **Styling:** SCSS (Sass) with CSS Modules & CSS Layers (`@layer`)
+- **Scripting:** TypeScript
+- **Animation:** GSAP, Lenis (Smooth Scroll)
+- **Icons:** React Icons
+- **Deployment:** Cloudflare Pages
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## ✨ Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+- **Bento Grid Layout:** Responsive grid system using CSS Grid `dense` flow.
+- **CSS Architecture:** strict management using `@layer` (reset, base, layout, component, utility) to control cascade.
+- **Performance:** Static Site Generation (SSG) for high performance and SEO.
+- **Micro-interactions:** Subtle animations and hover effects using CSS and GSAP.
 
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command            | Action                                       |
+| :----------------- | :------------------------------------------- |
+| `npm install`      | Installs dependencies                        |
+| `npm run dev`      | Starts local dev server at `localhost:4321`  |
+| `npm run build`    | Build your production site to `./dist/`      |
+| `npm run preview`  | Preview your build locally, before deploying |
+| `npm run lint:fix` | Run ESLint & Stylelint                       |
 
-## 👀 Want to learn more?
+## 📂 Project Structure
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```text
+/
+├── public/          # Static assets (images, fonts, favicon)
+├── src/
+│   ├── assets/      # Processed assets
+│   ├── components/  # Astro components
+│   │   ├── blocks/  # Bento grid blocks (Hero, Work, Tech...)
+│   │   └── ui/      # UI components (Card, Logo...)
+│   ├── layouts/     # Page layouts
+│   ├── pages/       # Routing
+│   └── styles/      # Global styles & SCSS configuration
+│       ├── foundation/ # Mixins, Variables, Layers
+│       └── ...
+└── astro.config.mjs
+```

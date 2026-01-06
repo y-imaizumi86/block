@@ -1,0 +1,13 @@
+// src/styles/foundation/_function.scss
+
+@use 'sass:math';
+
+@function vw($size, $viewport: 430) {
+  $rate: math.div(100, $viewport);
+
+  @return $rate * $size * 1vw;
+}
+
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}

@@ -1,0 +1,120 @@
+---
+// src/components/blocks/Work.astro
+
+import type { ImageMetadata } from 'astro';
+import Card from '../ui/Card.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description?: string;
+  tags: string[];
+  image: ImageMetadata;
+  href: string;
+}
+
+const { title, description, tags, image, href } = Astro.props;
+---
+
+<Card href={href} isTarget class="work u-span-2 u-row-2">
+  <div class="work__image">
+    <Image src={image} alt={title} width={800} class="u-image-cover" />
+  </div>
+  <div class="work__content">
+    <h2 class="work__title u-en">{title}</h2>
+    {description && <p class="work__desc">{description}</p>}
+    <ul class="work__tags">
+      {tags.map((tag) => <li class="work__tag u-en">{tag}</li>)}
+    </ul>
+  </div>
+</Card>
+
+<style lang="scss">
+  @use '@/styles/config' as *;
+
+  @layer component {
+    :global(.work) {
+      &.c-card {
+        padding: 0;
+      }
+
+      @include hover {
+        .work__image {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    .work {
+      &__image {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: $radius-lg;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+      }
+
+      &__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        width: fit-content;
+        max-width: calc(100% - 32px);
+        padding-block: 16px;
+        padding-inline: 20px;
+        margin-block-start: auto;
+        margin-block-end: 16px;
+        margin-inline: 16px;
+        background-color: $color-item;
+        border: solid 1px $color-border;
+        border-radius: $radius-md;
+      }
+
+      &__title {
+        font-size: rem(16);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      &__desc {
+        font-size: rem(12);
+        line-height: 1.5;
+        color: rgba($color-text, 0.7);
+      }
+
+      &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 4px;
+        column-gap: 8px;
+      }
+
+      &__tag {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        column-gap: 8px;
+        align-items: center;
+        font-size: rem(12);
+        color: rgba($color-text, 0.6);
+
+        &:not(:last-child)::after {
+          color: rgba($color-text, 0.3);
+          content: '/';
+        }
+      }
+    }
+  }
+</style>

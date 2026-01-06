@@ -1,0 +1,73 @@
+---
+// src/components/blocks/Tech.astro
+
+import Card from '../ui/Card.astro';
+
+const stacks = [
+  'HTML / CSS',
+  'Sass(SCSS)',
+  'TypeScript',
+  'Astro',
+  'React',
+  'Vue',
+  'WordPress',
+  'microCMS',
+  'Git / GitHub',
+];
+---
+
+<Card class="tech u-row-2-md">
+  <div class="tech__inner">
+    <h2 class="tech__title u-en">Stack</h2>
+    <ul class="tech__list">
+      {stacks.map((stack) => <li class="tech__item u-en">{stack}</li>)}
+    </ul>
+  </div>
+</Card>
+
+<style lang="scss">
+  @use '@/styles/config' as *;
+
+  @layer component {
+    .tech {
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      &__title {
+        font-size: rem(14);
+        font-weight: 600;
+        color: rgba($color-text, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        font-size: rem(16);
+        font-weight: 700;
+        color: $color-text;
+      }
+
+      &__item {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        column-gap: 12px;
+        align-items: center;
+
+        &::before {
+          display: block;
+          width: 6px;
+          aspect-ratio: 1 / 1;
+          content: '';
+          background-color: rgba($color-text, 0.3);
+        }
+      }
+    }
+  }
+</style>

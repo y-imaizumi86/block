@@ -1,0 +1,52 @@
+---
+// src/components/blocks/Hero.astro
+
+import Card from '../ui/Card.astro';
+---
+
+<Card class="hero u-span-2 u-row-2-md">
+  <div class="hero__inner">
+    <h1 class="hero__name u-en">
+      Yuta<br />Imaizumi
+    </h1>
+    <p class="hero__role u-en">Markup Engineer</p>
+  </div>
+</Card>
+
+<style lang="scss">
+  @use '@/styles/config' as *;
+
+  @layer component {
+    .hero {
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-block-start: auto;
+      }
+
+      &__name {
+        font-size: rem(40);
+        font-weight: 800;
+        line-height: 1;
+        color: $color-text;
+        letter-spacing: -0.02em;
+
+        @include mq('md') {
+          font-size: rem(64);
+        }
+      }
+
+      &__role {
+        font-size: rem(14);
+        font-weight: 500;
+        color: rgba($color-text, 0.6);
+        letter-spacing: 0.05em;
+
+        @include mq('md') {
+          font-size: rem(16);
+        }
+      }
+    }
+  }
+</style>
