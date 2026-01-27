@@ -5,16 +5,17 @@ interface Props {
   href?: string;
   class?: string;
   isTarget?: boolean;
+  style?: string; // ★追加: styleを受け取れるようにする
 }
 
-const { href, class: className, isTarget = false } = Astro.props;
+const { href, class: className, isTarget = false, style } = Astro.props;
 
 const Tag = href ? 'a' : 'div';
 const targetAttr = href && isTarget ? '_blank' : undefined;
 const relAttr = href && isTarget ? 'noreferrer' : undefined;
 ---
 
-<Tag href={href} class:list={['c-card', className]} target={targetAttr} rel={relAttr}>
+<Tag href={href} class:list={['c-card', className]} target={targetAttr} rel={relAttr} style={style}>
   <slot />
 </Tag>
 

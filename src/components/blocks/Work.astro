@@ -1,24 +1,27 @@
 ---
 // src/components/blocks/Work.astro
 
-import type { ImageMetadata } from 'astro';
 import Card from '../ui/Card.astro';
-import { Image } from 'astro:assets';
 
 interface Props {
   title: string;
   description?: string;
   tags: string[];
-  image: ImageMetadata;
   href: string;
+  themeColor?: string;
+  pattern?: 'grid' | 'dot' | 'none';
 }
 
-const { title, description, tags, image, href } = Astro.props;
+const { title, description, tags, href, themeColor = '#e5e7eb', pattern = 'none' } = Astro.props;
+
+const labelStyle = `
+  --work-theme-color: ${themeColor};
+`;
 ---
 
-<Card href={href} isTarget class="work u-span-2 u-row-2">
-  <div class="work__image">
-    <Image src={image} alt={title} width={800} class="u-image-cover" />
+<Card href={href} isTarget class={`work u-span-2 u-row-2 pattern-${pattern}`} style={labelStyle}>
+  <div class="work__visual">
+    <div class="work__pattern"></div>
   </div>
   <div class="work__content">
     <h2 class="work__title u-en">{title}</h2>
@@ -39,29 +42,53 @@ const { title, description, tags, image, href } = Astro.props;
       }
 
       @include hover {
-        .work__image {
-          img {
-            transform: scale(1.05);
-          }
+        .work__visual::after {
+          opacity: 0;
         }
       }
     }
 
     .work {
-      &__image {
+      &__visual {
         position: absolute;
         inset: 0;
         z-index: 0;
         width: 100%;
         height: 100%;
         overflow: hidden;
+        background-color: var(--work-theme-color);
         border-radius: $radius-lg;
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        &::after {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          content: '';
+          background-color: rgb(0 0 0 / 10%);
+          transition: opacity 0.3s;
+        }
+      }
+
+      &__pattern {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+
+        :global(.pattern-grid) & {
+          background-image:
+            linear-gradient(rgb(255 255 255 / 30%) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(255 255 255 / 30%) 1px, transparent 1px);
+          background-size: 20px 20px;
+        }
+
+        :global(.pattern-dot) & {
+          background-image: radial-gradient(rgb(255 255 255 / 40%) 2px, transparent 2px);
+          background-position:
+            0 0,
+            10px 10px;
+          background-size: 20px 20px;
         }
       }
 

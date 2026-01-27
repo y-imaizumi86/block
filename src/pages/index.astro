@@ -3,7 +3,6 @@
 
 import Hero from '@/components/blocks/Hero.astro';
 import Layout from '@/layouts/Layout.astro';
-import thumbLabs01 from '@/assets/images/labs01.png';
 import Work from '@/components/blocks/Work.astro';
 import Github from '@/components/blocks/Github.astro';
 import Tech from '@/components/blocks/Tech.astro';
@@ -19,9 +18,10 @@ import Credit from '@/components/blocks/Credit.astro';
       <Hero />
       <Work
         title="LABS Infrastructure"
-        description='建設会社サイトのトップページを再構築。jQuery依存のアニメーションをGSAPで再現し、Astroへ移行することでパフォーマンスを改善。'
-        tags={['Astro', 'GSAP', 'SCSS', 'Migration']}
-        image={thumbLabs01}
+        description="「システムアーキテクチャとしての建設」をテーマにした、架空の建設会社のコンセプトサイト。AstroとAlpine.jsを選定し、装飾を削ぎ落としたGray Boxingデザインと高パフォーマンスな実装を両立。"
+        tags={['Astro', 'Alpine.js', 'SCSS', 'Design Concept']}
+        themeColor="#1e293b"
+        pattern="grid"
         href="https://labs-infra.i-kinako.com"
       />
       <Decor />
