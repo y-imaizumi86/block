@@ -32,10 +32,18 @@ import Credit from '@/components/blocks/Credit.astro';
         pattern="dot"
         href="https://i-kinako.com/"
       />
+      <Work
+        title="MONO"
+        description="スピードとシンプルさを追求した、夫婦2人での利用に特化したミニマルな買い物リストアプリ。Cloudflare Access (Zero Trust) を認証に利用し、アプリコードから認証ロジックを排除する「User-Land」最適化を実現。"
+        tags={['Astro', 'React', 'Cloudflare D1', 'Zero Trust']}
+        themeColor="#202020"
+        pattern="grid"
+        href="https://github.com/y-imaizumi86/mono"
+      />
       <Tech />
-      <Decor />
       <Philosophy />
       <About />
+      <Decor />
       <Github href="https://github.com/y-imaizumi86" />
       <Decor />
       <Credit class="u-span-2 u-span-3-md" />
@@ -61,8 +69,9 @@ import Credit from '@/components/blocks/Credit.astro';
         margin-inline: auto;
 
         @include mq('md') {
-          grid-template-rows: repeat(3, 240px);
+          grid-template-rows: auto;
           grid-template-columns: repeat(4, 1fr);
+          grid-auto-rows: 240px;
           row-gap: 24px;
           column-gap: 24px;
           align-content: center;
