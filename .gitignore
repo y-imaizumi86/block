@@ -30,3 +30,6 @@ package-lock.json
 
 # ide
 .idea/
+
+# antigravity
+.antigravity/
