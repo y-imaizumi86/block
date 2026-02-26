@@ -29,6 +29,12 @@
     }
   }
 
+  .u-span-4-md {
+    @include mq("md") {
+      grid-column: span 4;
+    }
+  }
+
   .u-row-2 {
     grid-row: span 2;
   }

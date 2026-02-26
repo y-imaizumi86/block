@@ -16,37 +16,58 @@ import Credit from '@/components/blocks/Credit.astro';
   <main class="main">
     <div class="main__inner">
       <Hero />
-      <Work
-        title="LABS Infrastructure"
-        description="「システムアーキテクチャとしての建設」をテーマにした、架空の建設会社のコンセプトサイト。AstroとAlpine.jsを選定し、装飾を削ぎ落としたGray Boxingデザインと高パフォーマンスな実装を両立。"
-        tags={['Astro', 'Alpine.js', 'SCSS', 'Design Concept']}
-        themeColor="#1e293b"
-        pattern="grid"
-        href="https://labs-infra.i-kinako.com"
-      />
+
       <Work
         title="Life Cafe"
-        description="FPである妻の個人メディア兼ライフプランシミュレーションツール。Astro v5をベースに、計算ロジックとグラフ描画にはReactとChart.jsを採用。静的コンテンツの高速性と、React Hook Formによる堅牢なシミュレーション機能を統合。"
+        description="FPである奥さんの個人メディア兼ライフプランシミュレーションツール。Astro v5をベースに、計算ロジックとグラフ描画にはReactとChart.jsを採用。静的コンテンツの高速性と、React Hook Formによる堅牢なシミュレーション機能を統合。"
         tags={['Astro', 'React', 'MicroCMS', 'Chart.js']}
         themeColor="#fe6019"
         pattern="dot"
         href="https://i-kinako.com/"
+        class="u-span-2 u-row-2"
       />
+
+      <Work
+        title="FLOW"
+        description="カテゴリ別の支出管理に特化した家計簿アプリ。Drag & Dropによるカテゴリの並び替えや、PWAによるネイティブアプリに近い操作感を実現。Cloudflare D1をバックエンドに採用。"
+        tags={['Astro', 'React', 'Cloudflare D1', 'PWA']}
+        themeColor="#0d9488"
+        pattern="dot"
+        href="https://github.com/y-imaizumi86/flow"
+        class="u-span-2 u-row-2"
+      />
+
+      <Tech />
+
+      <About />
+
+      <Philosophy />
+
+      <Work
+        title="MERGE"
+        description="Vue 3 + Nuxt 4で構築した2048パズルゲーム。Composableによるシングルトンの状態管理、VueUseによるスワイプ操作、localStorageによるゲーム状態の永続化を実装。PWA対応。"
+        tags={['Nuxt', 'Vue 3', 'Tailwind CSS', 'PWA']}
+        themeColor="#edc22e"
+        pattern="grid"
+        href="https://merge.i-kinako.com"
+        class="u-span-2 u-row-2"
+      />
+
       <Work
         title="MONO"
-        description="スピードとシンプルさを追求した、夫婦2人での利用に特化したミニマルな買い物リストアプリ。Cloudflare Access (Zero Trust) を認証に利用し、アプリコードから認証ロジックを排除する「User-Land」最適化を実現。"
+        description="夫婦2人用のミニマルな買い物リストアプリ。Cloudflare Zero Trustによる認証で、アプリコードから認証ロジックを完全に排除。"
         tags={['Astro', 'React', 'Cloudflare D1', 'Zero Trust']}
         themeColor="#202020"
         pattern="grid"
         href="https://github.com/y-imaizumi86/mono"
+        class="u-span-2 u-row-2"
       />
-      <Tech />
-      <Philosophy />
-      <About />
-      <Decor />
+
       <Github href="https://github.com/y-imaizumi86" />
-      <Decor />
-      <Credit class="u-span-2 u-span-3-md" />
+
+      <Decor class="u-pc-only" />
+
+      <Credit class="u-span-2 u-span-4-md" />
     </div>
   </main>
 </Layout>

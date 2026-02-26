@@ -10,16 +10,17 @@ interface Props {
   href: string;
   themeColor?: string;
   pattern?: 'grid' | 'dot' | 'none';
+  class?: string;
 }
 
-const { title, description, tags, href, themeColor = '#e5e7eb', pattern = 'none' } = Astro.props;
+const { title, description, tags, href, themeColor = '#e5e7eb', pattern = 'none', class: className } = Astro.props;
 
 const labelStyle = `
   --work-theme-color: ${themeColor};
 `;
 ---
 
-<Card href={href} isTarget class={`work u-span-2 u-row-2 pattern-${pattern}`} style={labelStyle}>
+<Card href={href} isTarget class:list={['work', `pattern-${pattern}`, className]} style={labelStyle}>
   <div class="work__visual">
     <div class="work__pattern"></div>
   </div>
